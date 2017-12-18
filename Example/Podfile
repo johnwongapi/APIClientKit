@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'APIClient_Example' do
+  pod 'APIClientKit', :path => '../'
+
+  target 'APIClient_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

@@ -1,0 +1,19 @@
+PODS:
+  - Alamofire (4.5.1)
+  - APIClientKit (0.1.0):
+    - Alamofire (~> 4.5)
+
+DEPENDENCIES:
+  - APIClientKit (from `../`)
+
+EXTERNAL SOURCES:
+  APIClientKit:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  APIClientKit: 8c6d50910ba7dbcbed8741a1a176d448308b83f6
+
+PODFILE CHECKSUM: bb06f04a25c7926ec35162b8554d91fdda794682
+
+COCOAPODS: 1.2.0
