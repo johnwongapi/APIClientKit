@@ -83,7 +83,7 @@ public final class APIOperationGroup {
         }
     }
     
-    func getResult<T>(type: T.Type, index: Int) -> APIResult<T> {
+    func getResult<T>(index: Int, castAs type: T.Type) -> APIResult<T> {
         guard
             let results = self.results,
             results.count == self.tasks.count,

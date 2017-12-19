@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-// cancel single request in group
+// TODO: cancel single request in group
 
 public class APIClient {
     
@@ -28,7 +28,6 @@ extension APIClient {
 }
 
 extension APIClient {
-    @discardableResult
     public static func sendAsync<T: BaseConverter>(request: BaseRequest,
                                                    converter: T.Type,
                                                    manager: Alamofire.SessionManager = APIClient.default.sessionManager,
@@ -39,7 +38,7 @@ extension APIClient {
         let operation = APIOperation(request: request, converter: converter, manager: manager)
         group.addOperation(operation)
         group.setCompletionBlock {
-            let result = group.getResult(type: converter.Result.self, index: 0)
+            let result = group.getResult(index: 0, castAs: converter.Result.self)
             completion?(result)
         }
         group.start()
@@ -61,8 +60,8 @@ extension APIClient {
         group.addOperation(operation1)
         group.addOperation(operation2)
         group.setCompletionBlock {
-            let result1 = group.getResult(type: converter1.Result.self, index: 0)
-            let result2 = group.getResult(type: converter2.Result.self, index: 1)
+            let result1 = group.getResult(index: 0, castAs: converter1.Result.self)
+            let result2 = group.getResult(index: 1, castAs: converter2.Result.self)
             completion(result1, result2)
         }
         group.start()
